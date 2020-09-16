@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WatchShop.Repositories;
 using Microsoft.EntityFrameworkCore;
 using WatchShop.Models;
+using WatchShop.Models.ViewModels;
 
 namespace WatchShop.Controllers
 {
@@ -25,7 +26,7 @@ namespace WatchShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(CreateProductView product)
         {
             if (ModelState.IsValid)
             {
@@ -68,5 +69,6 @@ namespace WatchShop.Controllers
                 ModelState.AddModelError("", "Something is wrong");
             return View();
         }
+
     }
 }
