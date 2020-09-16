@@ -8,14 +8,21 @@ using WatchShop.Repositories;
 namespace WatchShop.Controllers
 {
     public class CategoryController : Controller
-    {      
+    {
+        private readonly ICategoryRepository categoryRepository;
+
+        public CategoryController(ICategoryRepository categoryRepository)
+        {
+            this.categoryRepository = categoryRepository;
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(categoryService.Categories());
         }
-        public IActionResult Create()
+        public IActionResult ProductListView(int id)
         {
-            return View();
+
+            return View(categoryService.Products(id));
         }
     }
 }

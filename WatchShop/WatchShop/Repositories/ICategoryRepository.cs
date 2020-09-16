@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WatchShop.Models;
 
 namespace WatchShop.Repositories
 {
-    interface ICategoryRepository
+    public interface ICategoryRepository
     {
-     
+        int CreateCategory(Category category);
+        List<Category> Categories();
+        List<Product> Products(int id);
     }
 }
