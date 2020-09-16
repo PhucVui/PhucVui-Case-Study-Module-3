@@ -14,5 +14,20 @@ namespace WatchShop.Repositories
         {
             this._context = context;
         }
+
+        public List<Category> Categories()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CreateCategory(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> Products(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -17,12 +17,12 @@ namespace WatchShop.Controllers
         }
         public IActionResult Index()
         {
-            return View(categoryService.Categories());
+            return View(categoryRepository.Categories());
         }
         public IActionResult ProductListView(int id)
         {
 
-            return View(categoryService.Products(id));
+            return View(categoryRepository.Products(id));
         }
     }
 }
