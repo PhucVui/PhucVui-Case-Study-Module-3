@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WatchShop.Models;
 using WatchShop.Repositories;
 
 namespace WatchShop.Controllers
@@ -21,8 +22,52 @@ namespace WatchShop.Controllers
         }
         public IActionResult ProductListView(int id)
         {
-
             return View(categoryRepository.Products(id));
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                if (categoryRepository.CreateCategory(category) > 0)
+                    return RedirectToAction("Index", "Product");
+                else
+                    ModelState.AddModelError("", "Erors");
+            }
+            return View(category);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View(categoryRepository.GetCategory(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                if (categoryRepository.EditCategory(category) > 0)
+                    return RedirectToAction("Index", "Product");
+                else
+                    ModelState.AddModelError("", "Looix");
+            }
+            return View(category);
+        }
+        public IActionResult Delete(int id)
+        {
+            if (categoryRepository.Delete(id) > 0)
+                return RedirectToAction("Index", "Category");
+            else
+                ModelState.AddModelError("", "Something is wrong");
+            return View();
         }
     }
 }

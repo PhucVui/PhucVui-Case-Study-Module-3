@@ -17,17 +17,35 @@ namespace WatchShop.Repositories
 
         public List<Category> Categories()
         {
-            throw new NotImplementedException();
+            return _context.Categories.ToList();
         }
 
         public int CreateCategory(Category category)
         {
-            throw new NotImplementedException();
+            _context.Add(category);
+            return _context.SaveChanges();
+        }
+
+        public int Delete(int id)
+        {
+            _context.Remove(GetCategory(id));
+            return _context.SaveChanges();
+        }
+
+        public int EditCategory(Category category)
+        {
+            _context.Categories.Update(category);
+            return _context.SaveChanges();
+        }
+
+        public Category GetCategory(int id)
+        {
+            return _context.Categories.FirstOrDefault(c => c.Id == id);
         }
 
         public List<Product> Products(int id)
         {
-            throw new NotImplementedException();
+            return _context.Products.ToList().FindAll(p => p.CategoryId == id);
         }
     }
 }

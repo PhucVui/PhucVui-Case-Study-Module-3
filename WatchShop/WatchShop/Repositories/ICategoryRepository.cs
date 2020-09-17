@@ -11,5 +11,9 @@ namespace WatchShop.Repositories
         int CreateCategory(Category category);
         List<Category> Categories();
         List<Product> Products(int id);
+        Category GetCategory(int id);
+        int EditCategory(Category category);
+        int Delete(int id);
+
     }
 }

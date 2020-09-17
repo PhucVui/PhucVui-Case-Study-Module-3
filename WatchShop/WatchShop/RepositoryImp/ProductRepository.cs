@@ -50,7 +50,7 @@ namespace WatchShop.Repositories
 
             if (iformfile_path != null)
             {
-                string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "images");
+                string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "layout\\images");
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + iformfile_path.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -59,11 +59,10 @@ namespace WatchShop.Repositories
                 }
             }
             return uniqueFileName;
-
         }
 
         public int CreateProduct(CreateProductView productView)
-        {
+         {
             Product product = new Product()
             {
                 Name = productView.Name,
