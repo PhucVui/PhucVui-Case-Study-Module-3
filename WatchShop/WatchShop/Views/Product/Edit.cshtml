@@ -34,6 +34,7 @@
                             asp-items="@(new SelectList(context.Categories.ToList(),"Id","Name"))">
                     </select>
                 </div>
+
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-primary" />
                     <a type="submit" asp-controller="Product" asp-action="Index" class="btn btn-danger">Back</a>
