@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WatchShop.Models;
 
 namespace WatchShop.Migrations
 {
     [DbContext(typeof(WatchShopDbContext))]
-    partial class WatchShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200917045056_AddColumnInOrderTable")]
+    partial class AddColumnInOrderTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,21 +47,21 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 1,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "danh mục rolex thụy sĩ",
                             Name = "Rolex"
                         },
                         new
                         {
                             Id = 2,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Casio việt Nam",
                             Name = "Casio"
                         },
                         new
                         {
                             Id = 3,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Bulova Ý",
                             Name = "Bulova"
                         });
@@ -90,9 +92,6 @@ namespace WatchShop.Migrations
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Discount")
-                        .HasColumnType("float");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -140,7 +139,7 @@ namespace WatchShop.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Rolex 01",
                             Price = 30000000.0
                         },
@@ -148,7 +147,7 @@ namespace WatchShop.Migrations
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Casio 0012",
                             Price = 4000000.0
                         },
@@ -156,7 +155,7 @@ namespace WatchShop.Migrations
                         {
                             Id = 3,
                             CategoryId = 3,
-                            CreateAt = new DateTime(2020, 9, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Bulova Nữ",
                             Price = 10000000.0
                         });

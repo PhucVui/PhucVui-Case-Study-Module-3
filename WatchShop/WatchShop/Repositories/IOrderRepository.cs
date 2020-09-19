@@ -6,7 +6,7 @@ using WatchShop.Models;
 
 namespace WatchShop.Repositories
 {
-     public interface IOrderRepository
+    public interface IOrderRepository
     {
         int CreateOrder(Order order);
         List<Order> GetOrdersList();
