@@ -10,7 +10,6 @@
     <title>Create</title>
 </head>
 <body>
-
     <h4>Order</h4>
     <hr />
     <div class="row">
@@ -22,16 +21,11 @@
                     <input asp-for="OrderDate" class="form-control" />
                     <span asp-validation-for="OrderDate" class="text-danger"></span>
                 </div>
-                @*<div class="form-group">
+                <div class="form-group">
                     <label asp-for="ShippedDate" class="control-label"></label>
                     <input asp-for="ShippedDate" class="form-control" />
                     <span asp-validation-for="ShippedDate" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Freight" class="control-label"></label>
-                    <input asp-for="Freight" type="number" class="form-control" />
-                    <span asp-validation-for="Freight" class="text-danger"></span>
-                </div>*@
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                     <a asp-controller="Order" asp-action="Index" class="btn btn-danger">Back</a>
@@ -39,7 +33,6 @@
             </form>
         </div>
     </div>
-
 </body>
 </html>
 

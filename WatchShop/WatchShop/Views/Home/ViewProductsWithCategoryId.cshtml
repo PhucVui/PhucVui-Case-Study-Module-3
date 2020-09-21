@@ -1,0 +1,29 @@
+﻿
+@model List<Product>
+
+<section class="service py-lg-4 py-md-4 py-sm-3 py-3" id="service">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-2">CateGory</h3>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @**@
+                <div class="col-lg-4 col-md-6 col-sm-6 ser-icon text-center my-3">
+                    <a asp-controller="Home" asp-action="ViewProductsWithCategoryId" asp-route-id="@item.Id">
+                        <div class="grid-wthree-service">
+                            <img src="~/layout/images/Product/@item.AvataPath" alt="news image" class="img-fluid">
+                            <div class="ser-text-wthree mt-3">
+                                <h4>
+                                    @item.Name
+                                </h4>
+                                <p class="mt-2">@item.Price</p>
+                                // cho cho 2phut nha, chay len lay goi thuoc ok
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @**@
+            }
+        </div>
+    </div>
+</section>
