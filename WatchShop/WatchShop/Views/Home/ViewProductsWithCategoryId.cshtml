@@ -11,13 +11,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 ser-icon text-center my-3">
                     <a asp-controller="Home" asp-action="ViewProductsWithCategoryId" asp-route-id="@item.Id">
                         <div class="grid-wthree-service">
-                            <img src="~/layout/images/Product/@item.AvataPath" alt="news image" class="img-fluid">
+                            <img src="layout/images/Product/@item.AvataPath" alt="news image" class="img-fluid">
                             <div class="ser-text-wthree mt-3">
                                 <h4>
                                     @item.Name
                                 </h4>
-                                <p class="mt-2">@item.Price</p>
-                                // cho cho 2phut nha, chay len lay goi thuoc ok
+                                <p class="mt-2">@item.Price</p>                   
                             </div>
                         </div>
                     </a>
