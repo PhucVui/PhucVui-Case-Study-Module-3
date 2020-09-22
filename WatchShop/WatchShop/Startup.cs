@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +35,7 @@ namespace WatchShop
             services.AddScoped<IOrderDetailRepository,OrderDetailRepository>();
             services.AddDbContext<WatchShopDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("WatchShopConnectionString")));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<WatchShopDbContext>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -55,6 +57,8 @@ namespace WatchShop
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

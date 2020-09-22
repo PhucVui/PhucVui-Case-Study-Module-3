@@ -22,6 +22,7 @@ namespace WatchShop.Repositories
 
         public int CreateCategory(Category category)
         {
+
             _context.Add(category);
             return _context.SaveChanges();
         }

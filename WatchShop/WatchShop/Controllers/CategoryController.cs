@@ -39,7 +39,7 @@ namespace WatchShop.Controllers
                 if (categoryRepository.CreateCategory(category) > 0)
                     return RedirectToAction("Index", "Product");
                
-                    ModelState.AddModelError("", "Erors");
+                    ModelState.AddModelError("", "Tên thương hiệu đã tồn tại");
             }
             return View(category);
         }

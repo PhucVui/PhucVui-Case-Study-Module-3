@@ -24,7 +24,7 @@
                 <tr>
                     <td>@item.Name</td>
                     <td>@item.Price</td>
-                    <td><img src="images/@item.AvataPath" alt="Alternate Text" style="height:60px; width:60px" /></td>
+                    <td><img src="~/images/Product/@item.AvataPath" alt="Alternate Text" style="height:60px; width:60px" /></td>
 
                     <td>@Categories.Find(c => c.Id == item.CategoryId).Name</td>
                     <td>

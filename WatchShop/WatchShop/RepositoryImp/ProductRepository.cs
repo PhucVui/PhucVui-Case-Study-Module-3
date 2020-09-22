@@ -63,16 +63,25 @@ namespace WatchShop.Repositories
 
         public int CreateProduct(CreateProductView productView)
          {
-            Product product = new Product()
+            foreach (var item in _context.Products)
             {
-                Name = productView.Name,
-                Price = productView.Price,
-                CreateAt = productView.CreateAt,
-                CategoryId = productView.CategoryId,
-                AvataPath = UploadedFile(productView.Avata)
-            };
-            _context.Add(product);
-            return _context.SaveChanges();
+                if(item.Name != productView.Name)
+                {
+                    Product product = new Product()
+                    {
+                        Name = productView.Name,
+                        Price = productView.Price,
+                        CreateAt = productView.CreateAt,
+                        CategoryId = productView.CategoryId,
+                        AvataPath = UploadedFile(productView.Avata)
+                    };
+                    _context.Add(product);
+                    return _context.SaveChanges();
+                }
+                
+            }
+            return 0;
+
         }
     }
 }
