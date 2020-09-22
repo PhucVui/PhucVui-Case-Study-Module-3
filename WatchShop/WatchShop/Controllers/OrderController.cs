@@ -34,7 +34,7 @@ namespace WatchShop.Controllers
             {
                 if (orderRepository.CreateOrder(order) > 0)
                     return RedirectToAction("Index", "Order");
-                else
+                
                     ModelState.AddModelError("", "some thing wrong");
             }
             return View(order);
@@ -53,8 +53,8 @@ namespace WatchShop.Controllers
             {
                 if (orderRepository.UpdateOrder(order) > 0)
                     return RedirectToAction("Index", "Order");
-                else
-                    ModelState.AddModelError("", "Looix");
+               
+                    ModelState.AddModelError("", "Erors");
             }
             return View(order);
         }
@@ -63,8 +63,8 @@ namespace WatchShop.Controllers
         {
             if (orderRepository.DeleteOrder(id) > 0)
                 return RedirectToAction("Index", "Order");
-            else
-                ModelState.AddModelError("", "Looix");
+            
+                ModelState.AddModelError("", "Erors");
             return View();
         }
     }

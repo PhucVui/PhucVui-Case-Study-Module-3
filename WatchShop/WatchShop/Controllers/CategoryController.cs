@@ -38,7 +38,7 @@ namespace WatchShop.Controllers
             {
                 if (categoryRepository.CreateCategory(category) > 0)
                     return RedirectToAction("Index", "Product");
-                else
+               
                     ModelState.AddModelError("", "Erors");
             }
             return View(category);
@@ -56,17 +56,17 @@ namespace WatchShop.Controllers
             {
                 if (categoryRepository.EditCategory(category) > 0)
                     return RedirectToAction("Index", "Product");
-                else
-                    ModelState.AddModelError("", "Looix");
+                
+                    ModelState.AddModelError("", "Erors");
             }
             return View(category);
         }
         public IActionResult Delete(int id)
         {
             if (categoryRepository.Delete(id) > 0)
-                return RedirectToAction("Index", "Category");
-            else
-                ModelState.AddModelError("", "Something is wrong");
+                return RedirectToAction("Index", "Category");   
+            
+            ModelState.AddModelError("", "Erors");
             return View();
         }
     }

@@ -31,10 +31,10 @@ namespace WatchShop
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddScoped<IOrderRepository,OrderRepository>();
+            services.AddScoped<IOrderDetailRepository,OrderDetailRepository>();
             services.AddDbContext<WatchShopDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("WatchShopConnectionString")));
         }
-
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

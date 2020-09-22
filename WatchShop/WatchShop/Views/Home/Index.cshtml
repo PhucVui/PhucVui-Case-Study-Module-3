@@ -2,20 +2,24 @@
 
 @inject WatchShopDbContext context;
 
-@{ 
-     string j = ""; 
+@{
+    string j = "";
+    var ProductList = context.Products.ToList();
+
 }
 <section class="service py-lg-4 py-md-4 py-sm-3 py-3" id="service">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-        <h3 class="title text-center mb-2">CateGory</h3>
+        <h3 class="title text-center mb-2">Thương Hiệu</h3>
+        <hr />
         <div class="row">
             @foreach (var item in Model)
             {
                 @**@
-                <div class="col-lg-4 col-md-6 col-sm-6 ser-icon text-center my-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 ser-icon text-center my-3">
                     <a asp-controller="Home" asp-action="ViewProductsWithCategoryId" asp-route-id="@item.Id">
                         <div class="grid-wthree-service">
-                            <img src="layout/images/Logo/@item.Logo" alt="news image" class="img-fluid">
+                            <img src="~/images/Logo/@item.Logo" alt="news image" class="img-fluid"
+                                 style="height: 130px; width: 150px">
                             <div class="ser-text-wthree mt-3">
                                 <h4>
                                     @item.Name
@@ -30,19 +34,21 @@
     </div>
 </section>
 <section class="gallery py-lg-4 py-md-3 py-sm-3 py-3" id="gallery">
-    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-        <h3 class="title text-center mb-2"></h3>
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3" style="text-align:center">
+        <h3 class="title text-center mb-2">Sản phẩm bán chạy</h3>
+        <hr />
         <div class="row gallery-info">
             @for (int i = 0; i < 6; i++)
             {
-                
+
                 int k = i + 1;
                 { j = "#gal" + k; }
 
                 <div class="col-lg-4 col-md-6 col-sm-6 gallery-img-grid my-3">
                     <div class="gallery-grids">
                         <a href="@j">
-                            <img src="layout/images/Product/@context.Products.ToList()[i].AvataPath" alt="news image" class="img-fluid">
+                            <img src="~/images/Product/@context.Products.ToList()[i].AvataPath" alt="news image" class="img-fluid"
+                                 style="height: 200px; width: 200px">
                         </a>
                     </div>
                 </div>
@@ -53,16 +59,28 @@
             @for (int i = 0; i < 6; i++)
             {
                 int k = i + 1;
-                { j = "gal"+ k; }
-                
+                { j = "gal" + k; }
+
                 <div id="@j" class="popup-effect">
                     <div class="popup">
-                        <img src="layout/images/Product/@context.Products.ToList()[i].AvataPath" class="img-fluid">
-                        <a class="close" href="#gallery">×</a>
-                        <p>hello</p>
+                        <p style="color:brown">
+                            <strong>
+                                Tên Sản Phẩm:
+                                @context.Products.FirstOrDefault(el => el.Id == ProductList[i].Id).Name
+                            </strong>
+                        </p>
+                        <img src="~/images/Product/@context.Products.ToList()[i].AvataPath" class="img-fluid"
+                             style="height: 250px; width: 250px">
+                        <a class="close" href="#gallery">x</a>
+                        <p style="color:brown">
+                            <strong>
+                                Giá:
+                                @context.Products.FirstOrDefault(el => el.Id == ProductList[i].Id).Price.ToString("N0")
+                            </strong>
+                        </p>
                     </div>
                 </div>
             }
-        </div>       
+        </div>
     </div>
 </section>

@@ -1,9 +1,4 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
 html,
 body {
 padding: 0;
@@ -388,9 +383,9 @@ a.reqe-button {
   }
   /* 
 nav ul li ul li .toggle,
-nav ul ul a {
-background-color: #212121;
-} */
+nav ul ul a {*/
+/*background-color: #212121;*/
+/*} */
   /* Hide Dropdowns by Default */
   nav ul ul {
     float: none;
@@ -458,7 +453,7 @@ background-color: #212121;
 .main-banner {
     padding-top: 20em;
 }
-.banner-left-side {
+/*.banner-left-side {
     background: url(../images/bb4.jpg) !important;
 
     background-repeat: no-repeat;
@@ -469,7 +464,7 @@ background-color: #212121;
     -ms-background-size: cover;
     min-height: 800px;
 }
-
+*/
 .social-icons ul li{
     width: 35px;
     text-align: center;

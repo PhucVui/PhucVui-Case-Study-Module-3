@@ -6,22 +6,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WatchShop.Models;
+using WatchShop.Repositories;
 
 namespace WatchShop.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICategoryRepository categoryRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,ICategoryRepository categoryRepository)
         {
             _logger = logger;
+            this.categoryRepository = categoryRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(categoryRepository.Categories());   
         }
+        
+
+        public IActionResult ViewProductsWithCategoryId(int id) => View(categoryRepository.Products(id));
 
         public IActionResult Privacy()
         {

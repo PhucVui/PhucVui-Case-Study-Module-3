@@ -29,6 +29,7 @@ namespace WatchShop.Models
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+
             modelBuilder.Seed();
         }
     }

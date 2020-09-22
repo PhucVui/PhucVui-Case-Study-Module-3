@@ -2,11 +2,11 @@
 <html lang="zxx">
 
 <head>
-    <title>Vui - WatchShop</title>
-    <!--meta tags -->
+    <title>PV - WatchShop</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -16,131 +16,181 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-    </script>   
-    <link href="~/layout/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"> 
-    <link href="~/layout/css/font-awesome.min.css" rel="stylesheet">   
+    </script>
+    <link href="~/layout/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/layout/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/layout/css/style.css" rel='stylesheet' type='text/css' media="all">
     <link href="~/layout/fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
     <link href="~/layout/fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
     <link href="~/layout/fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 </head>
 
-<body>   
-    <div class="banner-left-side" style="background: url(../layout/images/background.jpg) !important;
+<body>
+    <div class="banner-left-side" style="background: url(/images/Product/BG.jpg) !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         -webkit-background-size: cover !important;
         -moz-background-size: cover !important;
         -o-background-size: cover !important;
         -ms-background-size: cover !important;
-        min-height: 500px !important;
-    " id="home">
+        min-height: 500px !important;" id="home">
+
         <!-- header -->
         <div class="headder-top">
             <!-- nav -->
             <nav>
                 <div id="logo">
                     <h1>
-                        <a href="index.html">PV</a>
+                        <a asp-action="Index">PV</a>
                     </h1>
                 </div>
                 <div class="sub-headder position-relative">
                     <h6>
-                        <a href="index.html">
-                           PV-
+                        <a asp-action="Index">
+                            PV-
                             <br>Watch Shop
                         </a>
                     </h6>
                 </div>
-                <label for="drop" class="toggle">Menu</label>
+                <label for="drop" class="toggle"></label>
                 <input type="checkbox" id="drop">
                 <ul class="menu mt-2">
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a asp-controller="Home" asp-action="Index">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#service">List</a>
-                    </li>
-                    <li>
-                        First Tier Drop Down
-                        <label for="drop-2" class="toggle toogle-2">
-                            Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
-                        </label>
-                        <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <a asp-action="Create" asp-controller="Product">
+                            Chức Năng
+                            <span class="fa fa-angle-down" aria-hidden="true"></span>
+                        </a>
                         <input type="checkbox" id="drop-2">
                         <ul>
-                            <li><a href="gallery.html" class="drop-text">Gallery</a></li>
-                            <li><a href="menu.html" class="drop-text">Menu</a></li>
-                            <li><a href="recipe.html" class="drop-text">Recipes</a></li>
+                            <li><a asp-action="Create" asp-controller="Product" class="drop-text">Create Product</a></li>
+                            <li><a asp-action="Create" asp-controller="Order" class="drop-text">Create Order</a></li>
+                            <li><a asp-action="Create" asp-controller="Category" class="drop-text">Create Category</a></li>
+                            <li><a asp-action="Create" asp-controller="OrderDetail" class="drop-text">Create OrderDetail</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#gallery">Gallery</a>
+                        <a asp-action="Index" asp-controller="AdminPage">Admin Page</a>
                     </li>
                     <li>
-                        <a href="#blog">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact Us</a>
+                        <a href="#">Đăng nhập hệ thống<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <input type="checkbox" id="drop-2">
+                        <ul>
+                            <li><a href="" class="drop-text">Đăng nhập</a></li>
+                            <li><a href="" class="drop-text">Đăng kí</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
             <!-- //nav -->
         </div>
-        <!-- //header -->
-        <!-- banner -->
-        <div class="main-banner text-center">
-            <div class="container">
-                <div class="social-icons mb-lg-4 mb-3">
-                    <ul>
-                        <li class="facebook">
-                            <a href="#">
-                                <span class="fa fa-facebook"></span>
-                            </a>
-                        </li>
-                        <li class="twitter">
-                            <a href="#">
-                                <span class="fa fa-twitter"></span>
-                            </a>
-                        </li>
-                        <li class="rss">
-                            <a href="#">
-                                <span class="fa fa-rss"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="banner-right-txt">
-                    <h5 class="mb-sm-3 mb-2">Time is very Important</h5>
-                    <h5>PV - Watch Shop</h5>
-                </div>
-                <div class="slide-info-txt">
-                    <p>
-                        Thời gian trôi qua rất nhanh, nếu bạn muốn kiểm soát thời gian hãy đến với chúng tôi để có 1 chiếc đồng hồ chất !!!
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- //banner -->
-    <!-- about -->    
-            <div class="row">
-                @RenderBody();
+    
+        @RenderBody();
+        
+        <section class="footer-w3layouts-bottem py-lg-4 py-md-3 py-sm-3 py-3">
+            <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+                <div class="row ">
+                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">Address</h4>
+                        <div class="bottom-para ">
+                            <div class="footer-office-hour">
+                                <ul>
+                                    <li class="mb-2">
+                                        <h6>Address</h6>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            28 Nguyễn Tri Phương
+                                            <br>Phú Hội, Thừa Thiên Huế .
+                                        </p>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="my-2">
+                                        <h6>Phone</h6>
+                                    </li>
+                                    <li>
+                                        <p>+84-78-23-222-04</p>
+                                    </li>
+                                    <li class="my-2">
+                                        <h6>Email</h6>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <a href="">PhucVui16495@gmail.com</a>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">Twitter Us</h4>
+                        <div class="footer-office-hour">
+                            <ul>
+                                <li>
+                                    <p>sit amet consectetur adipiscing</p>
+                                </li>
+                                <li class="my-1">
+                                    <p>
+                                        <a href="mailto:info@example.com">info@example.com</a>
+                                    </p>
+                                </li>
+                                <li class="mb-3">
+                                    <span class="font-italic">Posted 3 days ago.</span>
+                                </li>
+                                <li>
+                                    <p>sit amet consectetur adipiscing</p>
+                                </li>
+                                <li class="my-1">
+                                    <p>
+                                        <a href="mailto:info@example.com">info@example.com</a>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span class="font-italic">Posted 3 days ago.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">NewsLetter</h4>
+                        <div class="newsletter">
+                            <form action="#" method="post" class="d-flex">
+                                <input type="email" name="Your Email" class="form-control" placeholder="Your Email" required="">
+                                <button class="btn1">
+                                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="footer-office-hour mt-3">
+                            <p>vehicula velit sagittis vehicula. Duis posuere ex in mollis iaculis. Suspendisse tincidunt velit sagittis vehicula</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-    <!--footer-copy-right -->
-    <footer class="bottem-wthree-footer text-center py-md-4 py-3">
-        <p>
-            © 2020 PV-WatchShop. All Rights Reserved 
-        </p>
-    </footer>
-    <!--//footer-copy-right -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+        </section>
+
+        <div class="text-center mt-lg-5 mt-md-4 mt-3">
+            <a href="#Index" class="move-top text-center mt-3">
+                <span class="fa fa-arrow-up" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!--footer-copy-right -->
+        <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+            <p>
+                © 2020 PV-WatchShop. All Rights Reserved
+            </p>
+        </footer>
+        <!--//footer-copy-right -->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
 </body>
 </html>
 

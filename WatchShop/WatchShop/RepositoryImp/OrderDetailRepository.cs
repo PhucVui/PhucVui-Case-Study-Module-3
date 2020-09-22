@@ -40,7 +40,7 @@ namespace WatchShop.Repositories
                                         o.ProductId == orderDetail.ProductId);
             Product product = _context.Products.FirstOrDefault(p => p.Id == orderDetail.ProductId);
 
-            if (orderDetails.Contains(FindOrderDetail))  // ngang đoạn này hơi hoang mang
+            if (orderDetails.Contains(FindOrderDetail)) 
             {
                 FindOrderDetail.Quantity += orderDetail.Quantity;
                 FindOrderDetail.Total += Bill(product.Price, orderDetail.Quantity, orderDetail.Discount);

@@ -44,7 +44,7 @@ namespace WatchShop.Controllers
                 ModelState.AddModelError("", "Quantity is not Null");
             }
             else
-                ModelState.AddModelError("", "Eror 404");
+                ModelState.AddModelError("", "Erors");
 
             return View(orderDetail);
         }

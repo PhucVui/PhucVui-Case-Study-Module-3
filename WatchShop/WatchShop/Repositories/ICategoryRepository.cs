@@ -14,6 +14,5 @@ namespace WatchShop.Repositories
         Category GetCategory(int id);
         int EditCategory(Category category);
         int Delete(int id);
-
     }
 }

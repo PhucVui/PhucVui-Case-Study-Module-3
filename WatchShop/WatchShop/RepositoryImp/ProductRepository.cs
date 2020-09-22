@@ -50,7 +50,7 @@ namespace WatchShop.Repositories
 
             if (iformfile_path != null)
             {
-                string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "layout/images/Product");
+                string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "images/Product");
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + iformfile_path.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))

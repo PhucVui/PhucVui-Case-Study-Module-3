@@ -2,6 +2,8 @@
 @inject WatchShopDbContext context;
 @{
     var productOrders = context.OrderDetails.ToList();
+    Layout = "_LayoutAdmin";
+    
 }
 <!DOCTYPE html>
 
@@ -16,7 +18,7 @@
             <tr>
                 <th>OrderId</th>
                 <th>OrderDate</th>
-                <th>ShippedDate</th>               
+                <th>ShippedDate</th>
                 <th>Product Management</th>
                 <th>Action</th>
             </tr>
@@ -27,7 +29,7 @@
                 <tr>
                     <td>@item.OrderId</td>
                     <td>@item.OrderDate</td>
-                    <td>@item.ShippedDate</td>                    
+                    <td>@item.ShippedDate</td>
                     <td>
                         <a asp-controller="Product" asp-action="Index" asp-route-id="@item.OrderId">
                             @productOrders.FindAll(p => p.OrderId == item.OrderId).Count

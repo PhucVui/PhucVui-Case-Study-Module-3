@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200919170049_DefaultvalueforImageProduct.cs" />
+    <Compile Remove="Migrations\20200919170049_DefaultvalueforImageProduct.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Admin\index.html" />
+    <Content Include="Views\Admin\login.html" />
+    <Content Include="Views\Admin\password.html" />
+    <Content Include="Views\Admin\register.html" />
+    <Content Include="Views\Admin\scripts.js" />
+    <Content Include="Views\Admin\tables.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
@@ -14,8 +28,71 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\Order\" />
+    <None Include="wwwroot\dist\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\dist\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\dist\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\dist\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\dist\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\scripts\build-assets.js" />
+    <None Include="wwwroot\scripts\build-pug.js" />
+    <None Include="wwwroot\scripts\build-scripts.js" />
+    <None Include="wwwroot\scripts\build-scss.js" />
+    <None Include="wwwroot\scripts\clean.js" />
+    <None Include="wwwroot\scripts\render-assets.js" />
+    <None Include="wwwroot\scripts\render-pug.js" />
+    <None Include="wwwroot\scripts\render-scripts.js" />
+    <None Include="wwwroot\scripts\render-scss.js" />
+    <None Include="wwwroot\scripts\sb-watch.js" />
+    <None Include="wwwroot\scripts\start-debug.js" />
+    <None Include="wwwroot\scripts\start.js" />
+    <None Include="wwwroot\src\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\src\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\src\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\src\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\src\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\src\js\scripts.js" />
+    <None Include="wwwroot\src\pug\layouts\authentication.pug" />
+    <None Include="wwwroot\src\pug\layouts\dashboard.pug" />
+    <None Include="wwwroot\src\pug\layouts\error.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\footer.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\head\css.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\head\icons.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\head\meta.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\head\title.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\navigation\topnav.pug" />
+    <None Include="wwwroot\src\pug\layouts\includes\scripts.pug" />
+    <None Include="wwwroot\src\pug\pages\401.pug" />
+    <None Include="wwwroot\src\pug\pages\404.pug" />
+    <None Include="wwwroot\src\pug\pages\500.pug" />
+    <None Include="wwwroot\src\pug\pages\charts.pug" />
+    <None Include="wwwroot\src\pug\pages\includes\datatable.pug" />
+    <None Include="wwwroot\src\pug\pages\includes\page-header.pug" />
+    <None Include="wwwroot\src\pug\pages\index.pug" />
+    <None Include="wwwroot\src\pug\pages\layout-sidenav-light.pug" />
+    <None Include="wwwroot\src\pug\pages\layout-static.pug" />
+    <None Include="wwwroot\src\pug\pages\login.pug" />
+    <None Include="wwwroot\src\pug\pages\password.pug" />
+    <None Include="wwwroot\src\pug\pages\register.pug" />
+    <None Include="wwwroot\src\pug\pages\tables.pug" />
+    <None Include="wwwroot\src\scss\layout\_authentication.scss" />
+    <None Include="wwwroot\src\scss\layout\_dashboard-default.scss" />
+    <None Include="wwwroot\src\scss\layout\_dashboard-fixed.scss" />
+    <None Include="wwwroot\src\scss\layout\_error.scss" />
+    <None Include="wwwroot\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <None Include="wwwroot\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <None Include="wwwroot\src\scss\navigation\sidenav\_sidenav.scss" />
+    <None Include="wwwroot\src\scss\navigation\_nav.scss" />
+    <None Include="wwwroot\src\scss\navigation\_topnav.scss" />
+    <None Include="wwwroot\src\scss\styles.scss" />
+    <None Include="wwwroot\src\scss\variables\_navigation.scss" />
+    <None Include="wwwroot\src\scss\variables\_spacing.scss" />
+    <None Include="wwwroot\src\scss\_global.scss" />
+    <None Include="wwwroot\src\scss\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\dist\js\" />
   </ItemGroup>
 
 </Project>

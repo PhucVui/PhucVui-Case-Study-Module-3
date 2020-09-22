@@ -2,7 +2,9 @@
 
 
 @inject WatchShopDbContext context;
-@{ }
+@{
+    Layout = "_LayoutAdmin";
+}
 
 <form asp-controller="OrderDetail" asp-action="Edit">
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -13,7 +15,8 @@
             <select class="form-control" id="Category">
                 @foreach (var item in context.Categories.ToList())
                 {
-    <option value="@item.Id">e</option>}
+    <option value="@item.Id">e</option>
+}
             </select>
         </div>
         <div class="form-group col-md-6">
@@ -21,7 +24,8 @@
             <select class="form-control" asp-for="ProductId" id="Product">
                 @foreach (var item in context.Products.ToList())
                 {
-    <option value="@item.Id">e</option>}
+    <option value="@item.Id">e</option>
+}
             </select>
         </div>
     </div>
@@ -41,7 +45,7 @@
             <input type="text" class="form-control" asp-for="Total" readonly id="Price">
             <span asp-validation-for="Total"></span>
         </div>
-    </div>   
+    </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
