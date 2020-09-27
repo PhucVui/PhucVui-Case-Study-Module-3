@@ -93,7 +93,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Account\" />
     <Folder Include="wwwroot\dist\js\" />
   </ItemGroup>
 

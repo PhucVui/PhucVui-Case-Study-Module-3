@@ -248,7 +248,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 2,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Casio 201",
                             Logo = "logoCasio.png",
                             Name = "Casio"
@@ -256,7 +256,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 3,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Bulova Ý",
                             Logo = "Bulova.png",
                             Name = "Bulova"
@@ -264,7 +264,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 4,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "GSock 2020",
                             Logo = "GShock.png",
                             Name = "GShock"
@@ -272,7 +272,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 5,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Orient 2019",
                             Logo = "Orient.png",
                             Name = "Orient"
@@ -280,7 +280,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 6,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Seiko 456",
                             Logo = "Seiko.png",
                             Name = "Seiko"
@@ -288,7 +288,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 7,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Sunrise 104",
                             Logo = "sunrise.png",
                             Name = "Sunrise"
@@ -296,7 +296,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 8,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Julius 2019",
                             Logo = "Julius.png",
                             Name = "Julius"
@@ -304,7 +304,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 9,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Pianus 456",
                             Logo = "Pianus.png",
                             Name = "Pianus"
@@ -312,7 +312,7 @@ namespace WatchShop.Migrations
                         new
                         {
                             Id = 10,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "DW 104",
                             Logo = "DW.png",
                             Name = "DW"
@@ -400,7 +400,7 @@ namespace WatchShop.Migrations
                             Id = 2,
                             AvataPath = "casio.jpg",
                             CategoryId = 2,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Casio 0012",
                             Price = 4000000.0
                         },
@@ -409,7 +409,7 @@ namespace WatchShop.Migrations
                             Id = 3,
                             AvataPath = "Urgot.jpg",
                             CategoryId = 3,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Bulova Nữ",
                             Price = 10000000.0
                         },
@@ -418,7 +418,7 @@ namespace WatchShop.Migrations
                             Id = 4,
                             AvataPath = "A.jpg",
                             CategoryId = 4,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "GShock 01",
                             Price = 30000000.0
                         },
@@ -427,7 +427,7 @@ namespace WatchShop.Migrations
                             Id = 5,
                             AvataPath = "images2.jpg",
                             CategoryId = 5,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Orient 0012",
                             Price = 4000000.0
                         },
@@ -436,7 +436,7 @@ namespace WatchShop.Migrations
                             Id = 6,
                             AvataPath = "images1.jpg",
                             CategoryId = 6,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Seiko Nữ",
                             Price = 10000000.0
                         },
@@ -445,7 +445,7 @@ namespace WatchShop.Migrations
                             Id = 7,
                             AvataPath = "images5.jpg",
                             CategoryId = 7,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Sunrise Nữ",
                             Price = 10000000.0
                         },
@@ -454,7 +454,7 @@ namespace WatchShop.Migrations
                             Id = 8,
                             AvataPath = "images2.jpg",
                             CategoryId = 8,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Julius 0012",
                             Price = 4000000.0
                         },
@@ -463,7 +463,7 @@ namespace WatchShop.Migrations
                             Id = 9,
                             AvataPath = "images1.jpg",
                             CategoryId = 9,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Pianus Nữ",
                             Price = 10000000.0
                         },
@@ -472,9 +472,9 @@ namespace WatchShop.Migrations
                             Id = 10,
                             AvataPath = "images5.jpg",
                             CategoryId = 10,
-                            CreateAt = new DateTime(2020, 9, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateAt = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "DW Nữ",
-                            Price = 10000000.0
+                            Price = 11000000.0
                         });
                 });
 

@@ -1,0 +1,62 @@
+﻿@model Book
+@inject BookDbContext context;
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+    <h4>Book</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CategoryId" />
+                <input type="hidden" asp-for="Id"/>
+                <div class="form-group">
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Tên Sách</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Author" class="control-label">Tác giả</label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Mô tả</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PublishingYear" class="control-label">Năm xuất bản</label>
+                    <input asp-for="PublishingYear" class="form-control" />
+                    <span asp-validation-for="PublishingYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Booksnumber" class="control-label">Số lượng sách</label>
+                    <input asp-for="Booksnumber" class="form-control" />
+                    <span asp-validation-for="Booksnumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Edit" class="btn btn-primary" />
+                    <a asp-controller="Category" asp-action="Index" class="btn btn-danger">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

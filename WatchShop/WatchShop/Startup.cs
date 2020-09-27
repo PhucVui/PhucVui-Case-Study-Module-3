@@ -24,20 +24,26 @@ namespace WatchShop
 
         public IConfiguration Configuration { get; }
 
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             services.AddControllersWithViews();
-            services.AddScoped<ICategoryRepository,CategoryRepository>();
-            services.AddScoped<IProductRepository,ProductRepository>();
-            services.AddScoped<IOrderRepository,OrderRepository>();
-            services.AddScoped<IOrderDetailRepository,OrderDetailRepository>();
-            services.AddDbContext<WatchShopDbContext>(options => 
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddDbContext<WatchShopDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("WatchShopConnectionString")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<WatchShopDbContext>();
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<WatchShopDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = false;
+            })
+            .AddEntityFrameworkStores<WatchShopDbContext>()
+            .AddDefaultTokenProviders();
         }
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -47,7 +53,7 @@ namespace WatchShop
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                
+
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

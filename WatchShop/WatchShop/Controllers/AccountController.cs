@@ -29,11 +29,17 @@ namespace WatchShop.Controllers
             this._userManager = userManager;
             this._signInManager = signInManager;
         }
-        public IActionResult Index() => View(_userManager.Users.ToList());
+        public IActionResult Index()
+        {
+            return View(_userManager.Users.ToList());
+        }
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [AllowAnonymous]
         [HttpPost]
@@ -49,7 +55,7 @@ namespace WatchShop.Controllers
                     Email = model.Email,
                     UserName = model.Email,
                 };
-                var result = await _userManager.CreateAsync(User, model.Password);                
+                var result = await _userManager.CreateAsync(User, model.Password);
                 await _context.SaveChangesAsync();
 
                 if (result.Succeeded)
@@ -87,121 +93,108 @@ namespace WatchShop.Controllers
             return uniqueFileName;
         }
 
-        //[AllowAnonymous]
-        //[HttpGet]
-        //public IActionResult Login(string returnUrl = "") =>
-        //    View(new LoginViewModel { ReturnUrl = returnUrl });
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult Login(string returnUrl = "")
+        {
+            return View(new LoginView { ReturnUrl = returnUrl });
+        }
 
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginView model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
-        //        if (result.Succeeded)
-        //        {
-        //            if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-        //                return Redirect(model.ReturnUrl);
-        //            else
-        //                return RedirectToAction("Index", "Home");
-        //        }
-        //    }
-        //    ModelState.AddModelError("", "Sai Tài Khoản Hoặc Mật Khẩu !");
+                if (result.Succeeded)
+                {
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                        return Redirect(model.ReturnUrl);
+                    else
+                        return RedirectToAction("Index", "Home");
+                }
+            }
+            ModelState.AddModelError("", "Tài Khoản hoặc Mật Khẩu không đúng!");
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
-        //[HttpGet]
-        //public IActionResult Edit(string id)
-        //{
-        //    var User = _userManager.FindByIdAsync(id).Result;
-        //    var address = _context.Addresses.ToList().Find(el => el.Id == User.AddressId);
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            var User = _userManager.FindByIdAsync(id).Result;
 
-        //    ModelForEdit model = new ModelForEdit()
-        //    {
-        //        Email = User.Email,
-        //        FullName = User.FullName,
-        //        Id = User.Id,
-        //        Address = address,
-        //        Avatar_Path = User.Avatar,
-        //        PhoneNum = User.PhoneNumber
-        //    };
-        //    return View(model);
-        //}
+            EditUserView model = new EditUserView()
+            {
+                Id = User.Id,
+                Name = User.Name,
+                Email = User.Email,
+                AvatarPath = User.Avatar,
+                PhoneNumber = User.PhoneNumber
+            };
+            return View(model);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(ModelForEdit UserModel)
-        //{
-        //    Address address = _context.Addresses.ToList().Find(x => x.Id == UserModel.Address.Id);
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditUserView model)
+        {
 
-        //    address.ProvinceId = UserModel.Address.ProvinceId;
-        //    address.DistrictId = UserModel.Address.DistrictId;
-        //    address.WardId = UserModel.Address.WardId;
-        //    address.HouseNum = UserModel.Address.HouseNum;
+            var User = _userManager.FindByIdAsync(model.Id).Result;
+            
+            User.Name = model.Name;
+            User.Email = model.Email;
+            User.Avatar = model.AvatarPath;
+            User.PhoneNumber = model.PhoneNumber;
+            
 
-        //    _context.Update(address);
-        //    await _context.SaveChangesAsync();
+            if (model.IformfilePath != null)
+            {
+                User.Avatar = UploadedFile(model.IformfilePath);
 
-        //    var FindUser = _userManager.FindByIdAsync(UserModel.Id).Result;
+                if (!string.IsNullOrEmpty(model.AvatarPath) && model.AvatarPath != AvatarDefault)
+                {
+                    string DelPath = Path.Combine(_hostEnvironment.WebRootPath, "Images/UserImages", model.AvatarPath);
+                    System.IO.File.Delete(DelPath);
+                }
+            }
+            await _userManager.UpdateAsync(User);
 
-        //    FindUser.Email = UserModel.Email;
-        //    FindUser.FullName = UserModel.FullName;
-        //    FindUser.PhoneNumber = UserModel.PhoneNum;
-        //    FindUser.Address = address;
-        //    FindUser.Avatar = UserModel.Avatar_Path;
+            return RedirectToAction("Index", "Account");
+        }
 
-        //    if (UserModel.iformfile_path != null)
-        //    {
-        //        FindUser.Avatar = UploadedFile(UserModel.iformfile_path);
+        [Route("/Account/Delete/{id}")]
+        public IActionResult Delete(string id)
+        {
+            bool deleteResult = false;
+            var existUser = Task.Run(async () => await _userManager.FindByIdAsync(id)).Result;
 
-        //        if (!string.IsNullOrEmpty(UserModel.Avatar_Path) && UserModel.Avatar_Path != AvatarUserDefault)
-        //        {
-        //            string DelPath = Path.Combine(_hostEnvironment.WebRootPath, "Images/UserImages", UserModel.Avatar_Path);
-        //            System.IO.File.Delete(DelPath);
-        //        }
-        //    }
-        //    await _userManager.UpdateAsync(FindUser);
+            if (existUser == null)
+                return Json(new { deleteResult });           
 
-        //    return RedirectToAction("Index", "Account");
-        //}
-
-        //[Route("/Account/Delete/{id}")]
-        //public IActionResult Delete(string id)
-        //{
-        //    bool deleteResult = false;
-        //    var existUser = Task.Run(async () => await _userManager.FindByIdAsync(id)).Result;
-
-        //    if (existUser == null)
-        //        return Json(new { deleteResult });
-
-        //    var address = _context.Addresses.FirstOrDefault(el => el.Id == existUser.AddressId);
-
-        //    _context.Remove(address);
-        //    //Task.Run(async () => await _context.SaveChangesAsync());
-
-        //    if (existUser.Avatar != AvatarUserDefault)
-        //    {
-        //        string DelPath = Path.Combine(_hostEnvironment.WebRootPath, "Images/UserImages", existUser.Avatar);
-        //        System.IO.File.Delete(DelPath);
-        //    }
-        //    var identityResult = Task.Run(async () => await _userManager.DeleteAsync(existUser)).Result;
-        //    deleteResult = identityResult.Succeeded;
-
-        //    return Json(new { deleteResult });
-        //}
+            if (existUser.Avatar != AvatarDefault)
+            {
+                string DelPath = Path.Combine(_hostEnvironment.WebRootPath, "Images/User", existUser.Avatar);
+                System.IO.File.Delete(DelPath);
+            }
+            var identityResult = Task.Run(async () => await _userManager.DeleteAsync(existUser)).Result;
+            deleteResult = identityResult.Succeeded;
+            return Json(new { deleteResult });
+        }
 
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult UserDetail(string id) =>
-            View(_userManager.FindByIdAsync(id).Result);
-
+        public IActionResult UserDetail(string id)
+        {
+             return View(_userManager.FindByIdAsync(id).Result);
+        }
+            
         //[HttpGet]
         //public IActionResult ChangePass(string id)
         //{

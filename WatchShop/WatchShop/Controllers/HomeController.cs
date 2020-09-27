@@ -26,7 +26,6 @@ namespace WatchShop.Controllers
             return View(categoryRepository.Categories());   
         }
         
-
         public IActionResult ViewProductsWithCategoryId(int id) => View(categoryRepository.Products(id));
 
         public IActionResult Privacy()

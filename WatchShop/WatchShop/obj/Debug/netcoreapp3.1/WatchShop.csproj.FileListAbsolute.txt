@@ -96,3 +96,6 @@ C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\bin\Debug\netcoreapp3.1\Micr
 C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\WatchShop.csproj.CoreCompileInputs.cache
 C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\WatchShop.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\WatchShop.csprojAssemblyReference.cache
+C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\vui\Desktop\Case Study\WatchShop\WatchShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

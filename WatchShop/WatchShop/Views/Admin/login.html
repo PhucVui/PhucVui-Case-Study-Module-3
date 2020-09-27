@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -20,7 +20,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form >
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
                                                 <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
@@ -39,11 +39,12 @@
                                                 <a class="small" href="password.html">Forgot Password?</a>
                                                 <a class="btn btn-primary" href="index.html">Login</a>
                                             </div>
+                                            <div class="card-footer text-center">
+                                                <div class="small"><a asp-controller="Account"  >Bạn cần tạo tài khoản đăng nhập</a></div>
+                                            </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

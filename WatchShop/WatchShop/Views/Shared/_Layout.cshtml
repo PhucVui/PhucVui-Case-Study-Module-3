@@ -17,6 +17,23 @@
             window.scrollTo(0, 1);
         }
     </script>
+    <style>
+        .new {
+            background-color: black;
+            font-weight: bold;
+            padding: 5px 50px;
+            width: 100%;
+            border: none;
+            font-size: 13px;
+            color: white;
+            cursor: pointer;
+        }
+
+            .new:hover {
+                background-color: white !important;
+                color: black;
+            }
+    </style>
     <link href="~/layout/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
     <link href="~/layout/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/layout/css/style.css" rel='stylesheet' type='text/css' media="all">
@@ -59,27 +76,24 @@
                         <a asp-controller="Home" asp-action="Index">Trang chủ</a>
                     </li>
                     <li>
-                        <a asp-action="Create" asp-controller="Product">
-                            Chức Năng
-                            <span class="fa fa-angle-down" aria-hidden="true"></span>
-                        </a>
-                        <input type="checkbox" id="drop-2">
-                        <ul>
-                            <li><a asp-action="Create" asp-controller="Product" class="drop-text">Create Product</a></li>
-                            <li><a asp-action="Create" asp-controller="Order" class="drop-text">Create Order</a></li>
-                            <li><a asp-action="Create" asp-controller="Category" class="drop-text">Create Category</a></li>
-                            <li><a asp-action="Create" asp-controller="OrderDetail" class="drop-text">Create OrderDetail</a></li>
-                        </ul>
-                    </li>
-                    <li>
                         <a asp-action="Index" asp-controller="AdminPage">Admin Page</a>
                     </li>
                     <li>
                         <a href="#">Đăng nhập hệ thống<span class="fa fa-angle-down" aria-hidden="true"></span></a>
                         <input type="checkbox" id="drop-2">
                         <ul>
-                            <li><a href="" class="drop-text">Đăng nhập</a></li>
-                            <li><a href="" class="drop-text">Đăng kí</a></li>
+                            <li>
+                                <button type="button" class="new"
+                                        data-toggle="modal" data-target="#exampleModal" data-whatever="">
+                                    Đăng Nhập
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="new"
+                                        data-toggle="modal" data-target="#exampleModal1" data-whatever="">
+                                    Đăng kí
+                                </button>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -87,112 +101,182 @@
             <!-- //nav -->
         </div>
     </div>
-    
-        @RenderBody();
-        
-        <section class="footer-w3layouts-bottem py-lg-4 py-md-3 py-sm-3 py-3">
-            <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-                <div class="row ">
-                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
-                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">Address</h4>
-                        <div class="bottom-para ">
-                            <div class="footer-office-hour">
-                                <ul>
-                                    <li class="mb-2">
-                                        <h6>Address</h6>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            28 Nguyễn Tri Phương
-                                            <br>Phú Hội, Thừa Thiên Huế .
-                                        </p>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li class="my-2">
-                                        <h6>Phone</h6>
-                                    </li>
-                                    <li>
-                                        <p>+84-78-23-222-04</p>
-                                    </li>
-                                    <li class="my-2">
-                                        <h6>Email</h6>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            <a href="">PhucVui16495@gmail.com</a>
-                                        </p>
-                                    </li>
-                                </ul>
+
+    @RenderBody();
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="~/Account/Login" method="post" name="ReturnUrl">
+                    <div class="modal-header">
+                        <h5><strong>Đăng nhập</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="ReturnUrl"/>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Email</label>
+                            <input type="email" name="Email" class="form-control" id="recipient-name" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Password</label>
+                            <input class="form-control" type="password" name="Password" placeholder="Enter Password" />
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input name="RememberMe" type="checkbox" />
+                                <label>Remember password</label>
                             </div>
                         </div>
+
+                        <div class="card-footer text-center">
+                            <div class="small"><a asp-controller="Account" asp-action="Register">Bạn cần tạo tài khoản đăng nhập</a></div>
+                        </div>
                     </div>
-                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
-                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">Twitter Us</h4>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label"></label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Đăng kí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer-w3layouts-bottem py-lg-4 py-md-3 py-sm-3 py-3">
+        <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+            <div class="row ">
+                <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                    <h4 class="pb-lg-4 pb-md-3 pb-3 ">Address</h4>
+                    <div class="bottom-para ">
                         <div class="footer-office-hour">
                             <ul>
-                                <li>
-                                    <p>sit amet consectetur adipiscing</p>
+                                <li class="mb-2">
+                                    <h6>Address</h6>
                                 </li>
-                                <li class="my-1">
+                                <li>
                                     <p>
-                                        <a href="mailto:info@example.com">info@example.com</a>
+                                        28 Nguyễn Tri Phương
+                                        <br>Phú Hội, Thừa Thiên Huế .
                                     </p>
                                 </li>
-                                <li class="mb-3">
-                                    <span class="font-italic">Posted 3 days ago.</span>
+                            </ul>
+                            <ul>
+                                <li class="my-2">
+                                    <h6>Phone</h6>
                                 </li>
                                 <li>
-                                    <p>sit amet consectetur adipiscing</p>
+                                    <p>+84-78-23-222-04</p>
                                 </li>
-                                <li class="my-1">
+                                <li class="my-2">
+                                    <h6>Email</h6>
+                                </li>
+                                <li>
                                     <p>
-                                        <a href="mailto:info@example.com">info@example.com</a>
+                                        <a href="">PhucVui16495@gmail.com</a>
                                     </p>
-                                </li>
-                                <li>
-                                    <span class="font-italic">Posted 3 days ago.</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="footer-bottom-info col-lg-4 col-md-4 ">
-                        <h4 class="pb-lg-4 pb-md-3 pb-3 ">NewsLetter</h4>
-                        <div class="newsletter">
-                            <form action="#" method="post" class="d-flex">
-                                <input type="email" name="Your Email" class="form-control" placeholder="Your Email" required="">
-                                <button class="btn1">
-                                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="footer-office-hour mt-3">
-                            <p>vehicula velit sagittis vehicula. Duis posuere ex in mollis iaculis. Suspendisse tincidunt velit sagittis vehicula</p>
-                        </div>
+                </div>
+                <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                    <h4 class="pb-lg-4 pb-md-3 pb-3 ">Twitter Us</h4>
+                    <div class="footer-office-hour">
+                        <ul>
+                            <li>
+                                <p>Have a nice day</p>
+                            </li>
+                            <li class="my-1">
+                                <p>
+                                    <a href="mailto:info@example.com">info@example.com</a>
+                                </p>
+                            </li>
+                            <li class="mb-3">
+                                <span class="font-italic">Posted 3 days ago.</span>
+                            </li>
+                            <li>
+                                <p>Welcome to the my shop</p>
+                            </li>
+                            <li class="my-1">
+                                <p>
+                                    <a href="mailto:info@example.com">info@example.com</a>
+                                </p>
+                            </li>
+                            <li>
+                                <span class="font-italic"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom-info col-lg-4 col-md-4 ">
+                    <h4 class="pb-lg-4 pb-md-3 pb-3 ">NewsLetter</h4>
+                    <div class="newsletter">
+                        <form action="#" method="post" class="d-flex">
+                            <input type="email" name="Your Email" class="form-control" placeholder="Your Email" required="">
+                            <button class="btn1">
+                                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="footer-office-hour mt-3">
+                        <p>Are you ready to choice a nice watch?</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <div class="text-center mt-lg-5 mt-md-4 mt-3">
-            <a href="#Index" class="move-top text-center mt-3">
-                <span class="fa fa-arrow-up" aria-hidden="true"></span>
-            </a>
         </div>
+    </section>
 
-        <!--footer-copy-right -->
-        <footer class="bottem-wthree-footer text-center py-md-4 py-3">
-            <p>
-                © 2020 PV-WatchShop. All Rights Reserved
-            </p>
-        </footer>
-        <!--//footer-copy-right -->
+    <div class="text-center mt-lg-5 mt-md-4 mt-3">
+        <a href="#Index" class="move-top text-center mt-3">
+            <span class="fa fa-arrow-up" aria-hidden="true"></span>
+        </a>
+    </div>
+
+    footer-copy-right
+    <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+        <p>
+            © 2020 PV-WatchShop
+        </p>
+    </footer>
+    
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @RenderSection("Scripts", required: false)
-</body>
-</html>
+    </body>
+    </html>
 
 
 
